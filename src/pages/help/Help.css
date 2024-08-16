@@ -1,0 +1,23 @@
+.help-animation {
+  animation: appearButtons 3s ease forwards;
+  box-shadow: 4px 4px 4px rgba(26, 25, 25, 0.25);
+}
+
+@keyframes appearButtons {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* @media screen and (max-width: 768px) {
+  .banner-button {
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+} */

@@ -1,0 +1,14 @@
+Input::placeholder {
+  color: #a1a1a1 !important;
+  text-align: center !important;
+}
+
+Input:focus::placeholder {
+  color: transparent !important;
+}
+
+.center-cursor Input {
+  text-align: center;
+  font-weight: bold;
+  margin-left: 23px;
+}

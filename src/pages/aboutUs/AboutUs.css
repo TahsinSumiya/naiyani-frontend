@@ -1,0 +1,49 @@
+.values-text .line {
+  opacity: 0;
+  animation: textFade 3s ease forwards;
+}
+
+.values-text .line:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.values-text .line:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.values-text .line:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+.values-text .line:nth-child(4) {
+  animation-delay: 1.8s;
+}
+
+.values-text .line:nth-child(5) {
+  animation-delay: 2.4s;
+}
+
+.values-text .line:nth-child(6) {
+  animation-delay: 3s;
+}
+
+.values-text .line:nth-child(7) {
+  animation-delay: 3.6s;
+}
+
+.values-text .line:nth-child(8) {
+  animation-delay: 4.2s;
+}
+
+.values-text .line:nth-child(9) {
+  animation-delay: 4.8s;
+}
+
+@keyframes textFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

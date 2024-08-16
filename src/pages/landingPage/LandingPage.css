@@ -1,0 +1,27 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+@font-face {
+  font-family: "Safira March";
+  src: url("../../assets/fonts/SafiraMarch.otf");
+}
+
+.headerFont {
+  font-family: "Safira March";
+  font-weight: normal;
+}
+
+.gradient-text {
+  animation: textFade 4s ease forwards !important;
+}
+
+@keyframes textFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

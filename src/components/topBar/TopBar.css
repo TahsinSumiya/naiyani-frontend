@@ -1,0 +1,90 @@
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  /* background-color: red; */
+  animation: appearButtons 3s ease forwards;
+}
+.arrow-position {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 20px;
+  left: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 47px;
+  height: 47px;
+  background-color: white;
+  border: solid 2px black;
+  /* animation: appearButtons 3s ease forwards; */
+  box-shadow: none;
+}
+
+.hover-effect:hover {
+  /* box-shadow: none; */
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.filter-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 1px 4px 2px rgba(26, 25, 25, 0.25);
+}
+
+.svg-filter {
+  /* background-color: red; */
+  height: 52px;
+  width: 52px;
+  border-radius: 50%;
+  background-color: #595959;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.filter-dropdown {
+  z-index: 2;
+  /* background-color: red; */
+}
+.filter-dropdown a {
+  color: black;
+  font-family: "Calibri-Bold", sans-serif;
+  font-size: 18px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "Rastanty Cortez";
+  src: url("../../assets/fonts/RastantyCortez.ttf");
+}
+
+.text-positionT {
+  position: absolute;
+  top: 70px;
+  left: 60px;
+  font-family: "Rastanty Cortez";
+  font-size: 52px;
+
+  /* font-size: clamp(2.8rem, 3.5vw, 3rem); */
+  letter-spacing: 1px;
+}
+@keyframes appearButtons {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

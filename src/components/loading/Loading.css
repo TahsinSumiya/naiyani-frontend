@@ -1,0 +1,122 @@
+.loadingBox {
+  height: 38px;
+  width: 120px;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingInner {
+  height: 38px;
+  width: 120px;
+  position: relative;
+}
+
+/* bottom */
+.loadingInner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  border-bottom: 2px solid transparent;
+  transition: 0.8s ease;
+  animation: enterExpandBorder1B 0.75s forwards;
+  animation-delay: 2.25s;
+}
+
+/* Top */
+.loadingInner::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  border-top: 2px solid transparent;
+  background-color: transparent;
+
+  animation: enterExpandBorder1A 0.75s forwards;
+  animation-delay: 0.75s;
+}
+
+.loadingBox1 {
+  display: flex;
+
+  width: 120px;
+}
+
+.loadingInner1 {
+  position: relative;
+  width: 120px;
+}
+
+/* Right */
+
+.loadingInner1::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: auto;
+  width: 0;
+  height: 0;
+  border-right: 2px solid transparent;
+  transition: 0.8s ease;
+  animation: enterExpandBorder2 0.75s forwards;
+  /* animation-delay: 1s; */
+}
+
+/* Left */
+.loadingInner1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: auto;
+  width: 0;
+  height: 0;
+  border-left: 2px solid transparent;
+  background-color: transparent;
+  transform: translateY(-38px);
+
+  animation: enterExpandBorder2 0.75s forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes enterExpandBorder1B {
+  0% {
+    width: 0;
+
+    border-color: transparent;
+  }
+  100% {
+    width: 57%;
+
+    border-color: black;
+  }
+}
+@keyframes enterExpandBorder1A {
+  0% {
+    width: 0;
+
+    border-color: transparent;
+  }
+  100% {
+    width: 100%;
+
+    border-color: black;
+  }
+}
+@keyframes enterExpandBorder2 {
+  0% {
+    height: 0;
+    border-color: transparent;
+  }
+  100% {
+    height: 37px;
+    border-color: black;
+  }
+
+  from {
+    width: 0;
+  }
+}
