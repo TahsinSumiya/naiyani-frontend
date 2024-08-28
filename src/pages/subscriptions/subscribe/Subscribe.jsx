@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { Navigate, useLocation } from 'react-router-dom';
-import Alert from '../../components/alert/Alert';
-import Navbar1 from '../../components/navbar/Navbar1';
+import Alert from '../../../components/alert/Alert';
+import Navbar1 from '../../../components/navbar/Navbar1';
+import StripeWrapper from '../../../context/StripeWrapper';
 
 const Subscribe = () => {
   const location = useLocation();
@@ -57,6 +58,9 @@ const Subscribe = () => {
   }
 
   return (
+    <>
+<StripeWrapper>
+
     <div className='lg:px-32 px-8'>
       <Navbar1 />
       <h1 className='text-center text-gray-400 text-3xl'>| Subscribe |</h1>
@@ -98,6 +102,11 @@ const Subscribe = () => {
         </div>
       </div>
     </div>
+  
+    </StripeWrapper>
+   
+    </>
+ 
   );
 }
 

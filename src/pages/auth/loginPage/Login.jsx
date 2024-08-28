@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Dropdown, Input, message } from "antd";
-import menuIcon from "../../assets/img/menu.png";
-import { useUserLoginMutation } from "../../redux/api/auth/authApi";
-import { storeUserInfo } from "../../services/auth.service";
-import Loading from "../../components/loading/Loading";
+import menuIcon from "../../../assets/img/menu.png";
+import { useUserLoginMutation } from "../../../redux/api/auth/authApi";
+import { storeUserInfo } from "../../../services/auth.service";
+import Loading from "../../../components/loading/Loading";
 
 const items = [
   {

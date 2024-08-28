@@ -1,5 +1,6 @@
 import  { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import StripeWrapper from '../../../context/StripeWrapper';
 
 const Cancel = () => {
   const [cancelled, setCancelled] = useState(false);
@@ -8,12 +9,18 @@ const Cancel = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem('accessToken');
 
+    if (!token) {
+      console.error("No access token found");
+      return;
+    }
     try {
-      const response = await fetch('http://localhost:8000/api/v1/subscription/cancel-subscription/', {
+      const response = await fetch('http://localhost:8000/api/v1/payment/cancel-subscription/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
           subscriptionId: location.state?.subscription
@@ -38,7 +45,9 @@ const Cancel = () => {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 shaodw-md"  >
+    <>
+ <StripeWrapper>
+ <div className="flex items-center justify-center min-h-screen bg-gray-100 shaodw-md"  >
       <div className="w-96 max-h-lg p-6 bg-gray-200 border border-gray-200 rounded-lg shadow-md "
       style={{ boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset'}}>
         <h1 data-aos="zoom-in" className='text-center text-gray-600 text-3xl mb-6'>| Cancel |</h1>
@@ -57,6 +66,11 @@ const Cancel = () => {
         </div>
       </div>
     </div>
+ </StripeWrapper>
+    
+
+    </>
+ 
   );
 };
 

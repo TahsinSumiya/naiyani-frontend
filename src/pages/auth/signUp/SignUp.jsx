@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Link, useNavigate } from "react-router-dom";
-import TopBar from "../../components/topBar/TopBar";
-import CustomButton from "../../components/customButton/CustomButton";
+import TopBar from "../../../components/topBar/TopBar";
+import CustomButton from "../../../components/customButton/CustomButton";
 import { useState } from "react";
-import { useUserRegisterMutation } from "../../redux/api/auth/authApi";
+import { useUserRegisterMutation } from "../../../redux/api/auth/authApi";
 
-import Loading from "../../components/loading/Loading";
+import Loading from "../../../components/loading/Loading";
 import toast from "react-hot-toast";
 import { Input } from "antd";
 import PasswordChecklist from "react-password-checklist";

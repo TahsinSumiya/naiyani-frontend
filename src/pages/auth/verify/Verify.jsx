@@ -1,10 +1,10 @@
-import emailIcon from "../../assets/img/emailIcon.png";
+import emailIcon from "../../../assets/img/emailIcon.png";
 import { Button, Card } from "antd";
-import { useVerifyEmailMutation } from "../../redux/api/auth/authApi";
+import { useVerifyEmailMutation } from "../../../redux/api/auth/authApi";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import Loading from "../../components/loading/Loading";
+import Loading from "../../../components/loading/Loading";
 
 const Verify = () => {
   const [inputCode, setInputCode] = useState("");

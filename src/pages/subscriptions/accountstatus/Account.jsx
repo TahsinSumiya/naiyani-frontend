@@ -1,22 +1,48 @@
 import { useState, useEffect } from 'react';
 import AccountSubscription from './AccountSubscription';
-import Navbar1 from '../../components/navbar/Navbar1';
+import Navbar1 from '../../../components/navbar/Navbar1';
+import StripeWrapper from '../../../context/StripeWrapper';
 
 const Account = () => {
   const [subscriptions, setSubscriptions] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:8000/api/v1/subscription/subscriptions/');
-      const data = await response.json();
-      setSubscriptions(data.subscriptions.data);
+      const token = localStorage.getItem('accessToken');
+  
+      if (!token) {
+        console.error("No access token found");
+        return;
+      }
+  
+      try {
+        const response = await fetch('http://localhost:8000/api/v1/payment/subscriptions/', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+  
+        const data = await response.json();
+  
+        if (response.ok) {
+          setSubscriptions(data.subscriptions.data);
+        } else {
+          console.error("API Error:", data);
+        }
+      } catch (error) {
+        console.error("Error fetching subscriptions:", error);
+      }
     };
+  
     fetchData();
   }, []);
-
-
-
+  
   return (
+    <>
+    <StripeWrapper>
+
+   
     <div className='lg:px-32 px-8'>
             <Navbar1 />
       <h1 data-aos="zoom-in" className='text-center text-gray-400 text-3xl'>| Account Status |</h1>
@@ -33,6 +59,9 @@ const Account = () => {
         ))}
       </div>
     </div>
+    </StripeWrapper>
+    </>
+
   );
 };
 

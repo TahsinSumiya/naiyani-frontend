@@ -1,10 +1,48 @@
+import { useState } from "react";
 import { CopyrightOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import naiyaniLogo from "../assets/img/naiyanLogo.jpg";
-
 import { FaArrowAltCircleRight } from "react-icons/fa";
 
 const Footer = () => {
+  const [email, setEmail] = useState(""); // State for email input
+  const [isSubmitting, setIsSubmitting] = useState(false); // State for submission status
+  const [error, setError] = useState(""); // State for error messages
+  const [success, setSuccess] = useState(""); // State for success messages
+
+  const handleSubmit = async () => {
+    if (!email) {
+      setError("Email is required");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError("");
+    setSuccess("");
+
+    try {
+      const response = await fetch("http://localhost:8000/api/v1/newsletter/subscribe/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setSuccess("Subscription successful!");
+        setEmail(""); // Clear the input
+      } else {
+        const data = await response.json();
+        setError(data.message || "Subscription failed");
+      }
+    } catch (error) {
+      setError("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="mt-36">
       <footer>
@@ -14,7 +52,7 @@ const Footer = () => {
             <img
               className="w-28 my-5 mx-auto lg:mx-0"
               src={naiyaniLogo}
-              alt=""
+              alt="Naiyani Logo"
             />
             <div className="lg:text-lg text-[15px]">
               Stay in the loop and sign up for the Naiyani newsletter
@@ -24,24 +62,26 @@ const Footer = () => {
               style={{
                 boxShadow: "1px 4px 2px rgba(26, 25, 25, 0.25)",
               }}
-              className="rounded-2xl  border-none   flex items-center justify-between py-1 cursor-pointer bg-white px-1 w-[280px] mx-auto my-4 lg"
+              className="rounded-2xl border-none flex items-center justify-between py-1 cursor-pointer bg-white px-1 w-[280px] mx-auto my-4 lg"
             >
               <input
                 className="w-full h-full rounded-[50px] border-none outline-none text-[18px] font-semibold px-2"
                 type="email"
                 name="email"
                 placeholder="Email"
-                id=""
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <FaArrowAltCircleRight
-                onClick={() => {
-                  window.location.href = "mailto:info@naiyani.com";
-                }}
+                onClick={handleSubmit}
                 className="h-[24px] w-[24px] text-gray-600"
               />
             </div>
+
+            {error && <div className="text-red-600">{error}</div>}
+            {success && <div className="text-green-600">{success}</div>}
           </div>
-          <div className="flex lg:gap-20 gap-7  justify-center">
+          <div className="flex lg:gap-20 gap-7 justify-center">
             {/* Explore */}
             <div className="flex flex-col gap-1">
               <h3 className="mb-2 text-base">Explore</h3>

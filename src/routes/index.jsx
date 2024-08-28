@@ -4,21 +4,21 @@ import DatabaseButton from "../pages/databaseButton/DatabaseButton";
 import DatabaseList from "../pages/databaseList/DatabaseList";
 import DatabaseTable from "../pages/databaseTable/DatabaseTable";
 import Help from "../pages/help/Help";
-import SignUp from "../pages/signUp/SignUp";
+import SignUp from "../pages/auth/signUp/SignUp";
 import Terms from "../pages/terms/Terms";
 import Privacy from "../pages/privacy/Privacy";
-import Verify from "../pages/verify/verify";
+import Verify from "../pages/auth/verify/Verify";
 // import PrivateRoute from "./PrivateRoute";
 
-import Login from "../pages/loginPage/Login";
+import Login from "../pages/auth/loginPage/Login";
 import LandingPage from "../pages/landingPage/LandingPage";
-import Pricing from "../pages/pricing/Pricing";
+import Pricing from "../pages/subscriptions/pricing/Pricing";
 import ContactUs from "../pages/contactUs/ContactUs";
 import AboutUs from "../pages/aboutUs/AboutUs";
 import Team from "../pages/team/Team";
-import Subscribe from "../pages/pricing/Subscribe";
-import Account from "../pages/pricing/Account";
-import Cancel from "../pages/pricing/Cancel";
+import Subscribe from "../pages/subscriptions/subscribe/Subscribe";
+import Account from "../pages/subscriptions/accountstatus/Account";
+import Cancel from "../pages/subscriptions/accountstatus/Cancel";
 import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([

@@ -4,32 +4,19 @@ import "./index.css";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { RouterProvider } from "react-router-dom";
-import routes from "./routes";
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
+import routes from "./routes/index";
+import StripeWrapper from "./context/StripeWrapper";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-fetch('http://localhost:8000/api/v1/subscription/config/')
-  .then((response) => response.json())
-  .then((data) => {
-    if (!data.publishableKey) {
-      throw new Error('Missing publishableKey in config response');
-    }
-    console.log(data.publishableKey)
-    const stripePromise = loadStripe(data.publishableKey);
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <StripeWrapper>
 
-    root.render(
-      <React.StrictMode>
-        <Provider store={store}>
-          <Elements stripe={stripePromise}>
-            <RouterProvider router={routes} />
-          </Elements>
-        </Provider>
-      </React.StrictMode>
-    );
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-    // Optionally render an error boundary or fallback UI here
-  });
+    
+      <RouterProvider router={routes} />
+      </StripeWrapper>
+    </Provider>
+  </React.StrictMode>
+);
