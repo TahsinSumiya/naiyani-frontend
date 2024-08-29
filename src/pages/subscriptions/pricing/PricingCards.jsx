@@ -6,7 +6,7 @@ const PricingCards = ({ prices, showMonthly, showYearly, createSubscription }) =
   return (
     <>
   
-<StripeWrapper>
+
 
 
  
@@ -47,7 +47,7 @@ const PricingCards = ({ prices, showMonthly, showYearly, createSubscription }) =
         </div>
       ))}
     </div>
-    </StripeWrapper>
+   
     </>
   )
 }

@@ -59,7 +59,7 @@ const Subscribe = () => {
 
   return (
     <>
-<StripeWrapper>
+
 
     <div className='lg:px-32 px-8'>
       <Navbar1 />
@@ -103,7 +103,7 @@ const Subscribe = () => {
       </div>
     </div>
   
-    </StripeWrapper>
+
    
     </>
  

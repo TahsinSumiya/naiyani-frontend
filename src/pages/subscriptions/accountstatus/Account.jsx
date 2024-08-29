@@ -40,7 +40,7 @@ const Account = () => {
   
   return (
     <>
-    <StripeWrapper>
+
 
    
     <div className='lg:px-32 px-8'>
@@ -59,7 +59,7 @@ const Account = () => {
         ))}
       </div>
     </div>
-    </StripeWrapper>
+
     </>
 
   );

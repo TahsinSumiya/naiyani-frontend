@@ -76,7 +76,7 @@ const Pricing = () => {
 
   return (
     <>
-   <StripeWrapper>
+
 
   
     <div className="lg:px-32 px-8 font-sans">
@@ -116,7 +116,7 @@ const Pricing = () => {
         <Footer />
       </div>
     </div>
-    </StripeWrapper>
+
     </>
   );
 };
